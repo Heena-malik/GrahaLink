@@ -1,0 +1,32 @@
+.home-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  gap: 30px;
+}
+
+/* Left side text */
+.home-left {
+  width: 55%;
+}
+
+.home-left h1 {
+  font-size: 22px;
+  line-height: 1.6;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Right side GIF */
+.home-right {
+  width: 40%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.home-gif {
+  width: 320px;
+  height: auto;
+  border-radius: 10px;
+}

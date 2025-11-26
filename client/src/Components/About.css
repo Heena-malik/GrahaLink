@@ -1,0 +1,123 @@
+/* MAIN WRAPPER */
+.about-wrapper {
+  padding: 50px;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+/* HEADER SECTION */
+.about-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.about-header h1 {
+  font-size: 38px;
+  color: #ff8c00;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  animation: glow 2s infinite alternate;
+}
+
+.about-header p {
+  color: #444;
+  font-size: 18px;
+  max-width: 700px;
+  margin: 10px auto;
+  opacity: 0.9;
+}
+
+/* CONTENT GRID */
+.about-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+/* LEFT TEXT */
+.about-left {
+  width: 55%;
+  animation: slideLeft 1s ease;
+}
+
+.about-left h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: black;
+}
+
+.about-left p {
+  font-size: 17px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.about-left ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about-left li {
+  font-size: 17px;
+  margin-bottom: 10px;
+  padding-left: 5px;
+  transition: 0.3s;
+  color: #333;
+}
+
+.about-left li:hover {
+  transform: translateX(8px);
+  color: #ff8c00;
+}
+
+/* RIGHT IMAGE */
+.about-right {
+  width: 40%;
+  text-align: center;
+  animation: slideRight 1s ease;
+}
+
+.about-img {
+  width: 90%;
+  border-radius: 12px;
+  box-shadow: 0px 6px 20px rgba(0,0,0,0.3);
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ICON GLOW */
+.icon-glow {
+  color: #ff8c00;
+  animation: glow 2s infinite alternate;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideLeft {
+  from { transform: translateX(-40px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideRight {
+  from { transform: translateX(40px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes glow {
+  from { text-shadow: 0px 0px 6px #ffcf8b; }
+  to { text-shadow: 0px 0px 15px #ff8c00; }
+}

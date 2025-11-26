@@ -1,0 +1,260 @@
+/* Reset some defaults */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Container for the whole header */
+.header-container {
+  background-color: #0f3c23; /* Dark green */
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.header-container .contact-info {
+  display: flex;
+  gap: 15px;
+}
+
+.header-container .contact-info div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.header-container .contact-info svg,
+.header-container .contact-info i {
+  font-size: 16px;
+}
+
+.header-container .user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-container .user-info img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.header-container .consult-btn {
+  background-color: #f2b900;
+  color: #0f3c23;
+  font-weight: 700;
+  border-radius: 25px;
+  padding: 8px 20px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.header-container .consult-btn:hover {
+  background-color: #d4a300;
+}
+
+/* Navigation Bar */
+.navbar {
+  background-color: #f2b900; /* Yellow */
+  padding: 8px 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-weight: 600;
+}
+
+.navbar a {
+  color: #0f3c23;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #004d00; /* Darker green */
+}
+
+.navbar .cart-login {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-weight: 600;
+}
+
+.navbar .cart-login i {
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Hero Banner */
+.hero-banner {
+  background-color: #0f3c23;
+  color: #fff;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  background-image: url('/mnt/data/72b17edc-ee3f-4a42-8fd9-47ca4374b11b.png');
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 350px auto;
+}
+
+.hero-banner .text-block {
+  max-width: 60%;
+}
+
+.hero-banner h2 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.hero-banner h3 {
+  color: #f2b900;
+  margin-bottom: 10px;
+}
+
+.hero-banner p {
+  margin-bottom: 20px;
+}
+
+.hero-banner .btn-book {
+  background-color: #f2b900;
+  color: #0f3c23;
+  padding: 12px 25px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 25px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.hero-banner .btn-book:hover {
+  background-color: #d4a300;
+}
+
+.hero-banner .code-text {
+  margin-left: 15px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* "My today at a glance" form */
+.today-glance {
+  background-color: #f2b900;
+  padding: 12px 20px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  max-width: 900px;
+  margin: 20px auto;
+  border-radius: 8px;
+  color: #0f3c23;
+  font-weight: 600;
+}
+
+.today-glance label {
+  display: none; /* visually hidden, since placeholders used */
+}
+
+.today-glance select,
+.today-glance input {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  width: 150px;
+  max-width: 100%;
+}
+
+.today-glance input[type="date"] {
+  width: 180px;
+}
+
+.today-glance .btn-go {
+  background-color: #0f3c23;
+  color: #f2b900;
+  font-weight: 700;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Horoscope section */
+.horoscope-section {
+  max-width: 900px;
+  margin: 30px auto;
+  text-align: center;
+}
+
+.horoscope-section h2 {
+  font-weight: 700;
+  color: #0f3c23;
+  margin-bottom: 10px;
+}
+
+.horoscope-section .divider {
+  width: 60px;
+  height: 3px;
+  background-color: #f2b900;
+  margin: 10px auto 25px;
+  border-radius: 2px;
+}
+
+/* Horoscope icons container */
+.horoscope-icons {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+/* Horoscope icon */
+.horoscope-icon {
+  background-color: #0f3c23;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  color: #f2b900;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 28px;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 0.25);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  user-select: none;
+  flex-direction: column;
+  padding: 5px;
+}
+
+.horoscope-icon:hover {
+  background-color: #f2b900;
+  color: #0f3c23;
+  transform: scale(1.1);
+}
+
+.horoscope-icon span {
+  font-size: 12px;
+  margin-top: 6px;
+  color: #f2b900;
+  font-weight: 600;
+}
