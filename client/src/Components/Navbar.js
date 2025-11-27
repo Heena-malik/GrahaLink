@@ -35,18 +35,25 @@ const Navbar = () => {
 
           {menuOpen && (
             <div className="dropdown-menu">
+
+              {/* Kundli Link Added */}
+              <Link to="/kundli-compatibility" className="dropdown-item">
+                💑 Kundli Compatibility
+              </Link>
+
               <Link to="/electrician" className="dropdown-item">🕉️ 8. Gemstone Recommendation</Link>
-              <Link to="/plumber" className="dropdown-item">🔮1. Daily Horoscope Readings</Link>
+              <Link to="/plumber" className="dropdown-item">🔮 1. Daily Horoscope Readings</Link>
               <Link to="/carpenter" className="dropdown-item">🪬 3. Kundali / Birth Chart Analysis</Link>
               <Link to="/technician" className="dropdown-item">🧿 4. Vastu Consultation</Link>
             </div>
           )}
         </div>
 
-        <Link to="/about" className="nav-item">About</Link>
+        {/* REPLACED About → Kundli */}
+        <Link to="/kundli-compatibility" className="nav-item">Kundli Compatibility</Link>
+
         <Link to="/contact" className="nav-item">Contact</Link>
         <Link to="/signin" className="nav-item">Sign In</Link>
-
         <Link to="/register" className="nav-item nav-register">Register</Link>
       </div>
     </nav>
