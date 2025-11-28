@@ -107,3 +107,22 @@
   from { text-shadow: 0 0 5px #ffe0b5; }
   to { text-shadow: 0 0 15px #ff8c00; }
 }
+.error-msg {
+  background: #ffe1e1;
+  color: #ff3b3b;
+  padding: 10px;
+  border-radius: 6px;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.success-msg {
+  background: #e1ffe7;
+  color: #22a947;
+  padding: 10px;
+  border-radius: 6px;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
