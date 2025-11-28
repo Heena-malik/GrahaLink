@@ -13,10 +13,11 @@ const Navbar = () => {
     <nav className="navbar">
 
       {/* LEFT – LOGO */}
-      <div className="navbar-left">
-        <img src={logo} alt="Logo" className="navbar-logo" />
-        <div className="logo-text">GrahaLink</div>
-      </div>
+<div className="navbar-left">
+  <img src={logo} alt="GrahaLink Logo" className="navbar-logo" />
+  <div className="logo-text">GrahaLink</div>
+</div>
+
 
       {/* RIGHT – NAV LINKS */}
       <div className="navbar-links">
@@ -64,7 +65,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* -------- NEW CALENDAR DROPDOWN -------- */}
+        {/* -------- CALENDAR DROPDOWN -------- */}
         <div
           className="dropdown"
           onMouseEnter={() => setCalendarOpen(true)}
@@ -81,7 +82,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* -------- NEW SOFTWARE DROPDOWN -------- */}
+        {/* -------- SOFTWARE DROPDOWN -------- */}
         <div
           className="dropdown"
           onMouseEnter={() => setSoftwareOpen(true)}
@@ -98,11 +99,10 @@ const Navbar = () => {
           </div>
         </div>
 
-        <Link to="/signin" className="nav-item">Sign In</Link>
-        <Link to="/register" className="nav-item nav-register">Register</Link>
+        {/* ---- ONLY SIGN IN BUTTON ---- */}
+        <Link to="/signin" className="nav-item nav-register">Sign In</Link>
 
       </div>
-
     </nav>
   );
 };

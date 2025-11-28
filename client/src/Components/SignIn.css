@@ -107,3 +107,12 @@
   from { text-shadow: 0 0 6px #ffe0b5; }
   to { text-shadow: 0 0 15px #ff8c00; }
 }
+.error-msg {
+  color: #ff3b3b;
+  background: #ffe1e1;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 14px;
+}

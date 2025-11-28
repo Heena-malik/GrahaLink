@@ -1,14 +1,39 @@
 import React, { useState } from "react";
 import "../Components/SignIn.css";
 import { FaEnvelope, FaLock, FaStar } from "react-icons/fa";
+import axios from "axios";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Signed in!");
+    setLoading(true);
+    setError("");
+
+    try {
+      const res = await axios.post("http://localhost:5000/api/auth/login", {
+        email,
+        password,
+      });
+
+      // Store token in localStorage
+      localStorage.setItem("token", res.data.token);
+
+      alert("Login Successful!");
+
+      // Redirect to dashboard or home page
+      window.location.href = "/dashboard"; 
+    } catch (err) {
+      setError(
+        err.response?.data?.msg || "Something went wrong. Try again!"
+      );
+    }
+
+    setLoading(false);
   };
 
   return (
@@ -18,6 +43,8 @@ const SignIn = () => {
         <h2 className="signin-title">
           <FaStar className="star-icon" /> Sign In
         </h2>
+
+        {error && <p className="error-msg">{error}</p>}
 
         <form onSubmit={handleSubmit}>
 
@@ -46,8 +73,8 @@ const SignIn = () => {
           </div>
 
           {/* Button */}
-          <button type="submit" className="signin-btn">
-            Sign In
+          <button type="submit" className="signin-btn" disabled={loading}>
+            {loading ? "Signing in..." : "Sign In"}
           </button>
 
           <p className="signup-text">
