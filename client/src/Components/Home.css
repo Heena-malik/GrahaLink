@@ -420,3 +420,68 @@
 .ai-arrow-btn:hover {
   background: #ffa733;
 }
+/* ===== FLOATING HELP POPUP ===== */
+.floating-help {
+  position: fixed;
+  right: 25px;          /* ✅ RIGHT SIDE */
+  bottom: 25px;
+  z-index: 9999;
+}
+
+/* IMAGE BUTTON */
+.help-avatar img {
+  width: 90px;          /* You can increase size */
+  height: auto;
+  cursor: pointer;
+  animation: vibrate 1.5s infinite;
+  background: transparent;
+}
+
+/* VIBRATION EFFECT */
+@keyframes vibrate {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(2deg); }
+  50% { transform: rotate(-2deg); }
+  75% { transform: rotate(2deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* QUESTION BOX */
+.help-question-box {
+  position: absolute;
+  right: 0;
+  bottom: 110px;
+  width: 260px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  display: none;
+}
+
+/* SHOW ON CLICK */
+#helpToggle:checked ~ .help-question-box {
+  display: block;
+}
+
+.help-question-box h4 {
+  color: orange;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.help-question-box input {
+  width: 100%;
+  padding: 7px;
+  margin-bottom: 8px;
+}
+
+.help-question-box button {
+  width: 100%;
+  background: orange;
+  color: white;
+  border: none;
+  padding: 7px;
+  cursor: pointer;
+}
+
