@@ -40,6 +40,9 @@ const Navbar = () => {
               <Link to="/kundli-compatibility" className="dropdown-item">
                 💑 Kundli Compatibility
               </Link>
+               <Link to="/freeKundli" className="dropdown-item">
+                    🔮 Free Kundli (Birth Chart)
+                </Link>
 
               <Link to="/electrician" className="dropdown-item">🕉️ 8. Gemstone Recommendation</Link>
               <Link to="/plumber" className="dropdown-item">🔮 1. Daily Horoscope Readings</Link>
@@ -51,8 +54,7 @@ const Navbar = () => {
 
         {/* YOUR UPDATED LINKS */}
         <Link to="/kundli-compatibility" className="nav-item">Kundli Compatibility</Link>
-        <Link to="/contact" className="nav-item">Contact</Link>
-
+        <Link to="/freeKundli" className="nav-item">Free Kundli</Link>
         {/* Common Links */}
         <Link to="/signin" className="nav-item">Sign In</Link>
         <Link to="/register" className="nav-item nav-register">Register</Link>

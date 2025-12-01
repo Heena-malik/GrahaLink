@@ -153,40 +153,51 @@ export default function KundliCompatibility() {
   }, []);
 
   async function postComment(e) {
-    e?.preventDefault();
+  e?.preventDefault();
 
-    if (!cName || !cEmail || !cText)
-      return alert("Please fill all fields.");
+  if (!cName.trim() || !cText.trim())
+    return alert("Please enter name and comment");
 
-    setPosting(true);
+  setPosting(true);
 
-    try {
-      const res = await fetch(`${API_BASE}/api/comments`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: cName,
-          email: cEmail,
-          comment: cText,
-        }),
-      });
+  try {
+    const payload = {
+      name: cName.trim(),
+      email: cEmail.trim(),
+      comment: cText.trim(),
+    };
 
-      const data = await res.json();
+    const res = await fetch(`${API_BASE}/api/comments`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
 
-      if (res.ok) {
-        setComments((prev) => [data, ...prev]);
-        setCName("");
-        setCEmail("");
-        setCText("");
-      } else {
-        alert(data.error || "Error posting comment.");
-      }
-    } catch (err) {
-      alert("Comment submission failed.");
-    } finally {
-      setPosting(false);
+    const data = await res.json();
+
+    if (res.ok) {
+      // Build local comment object because backend does NOT return it
+      const newComment = {
+        name: payload.name,
+        email: payload.email,
+        comment: payload.comment,
+        date: new Date().toISOString(),
+      };
+
+      setComments((prev) => [newComment, ...prev]);
+
+      setCName("");
+      setCEmail("");
+      setCText("");
+    } else {
+      alert(data.error || "Error posting comment.");
     }
+  } catch (err) {
+    alert("Comment submission failed.");
+  } finally {
+    setPosting(false);
   }
+}
 
   /* ========== Kootas ========== */
   const kootas = [
@@ -664,32 +675,34 @@ export default function KundliCompatibility() {
         </div>
 
         {/* Comments List */}
-        <div className="comment-list">
-          {comments.length === 0 ? (
-            <div className="comment-empty">No comments yet — be first!</div>
-          ) : (
-            comments.map((c) => (
-              <div className="comment-item" key={c._id || c.createdAt}>
-                <div className="avatar">
-                  {(c.name || "U")[0].toUpperCase()}
-                </div>
-
-                <div style={{ flex: 1 }}>
-                  <header>
-                    <div className="c-name">{c.name}</div>
-                    <div className="c-date">
-                      {new Date(c.createdAt).toLocaleDateString()}
-                    </div>
-                  </header>
-
-                  <p style={{ marginTop: 8 }}>
-                    <strong>Said:</strong> {c.comment}
-                  </p>
-                </div>
-              </div>
-            ))
-          )}
+<div className="comment-list">
+  {comments.length === 0 ? (
+    <div className="comment-empty">No comments yet — be first!</div>
+  ) : (
+    comments.map((c) => (
+      <div className="comment-item" key={c._id || c.date}>
+        <div className="avatar">
+          {(c.name || "U")[0].toUpperCase()}
         </div>
+
+        <div style={{ flex: 1 }}>
+          <header>
+            <div className="c-name">{c.name}</div>
+            <div className="c-date">
+              {new Date(c.date).toLocaleDateString()}
+            </div>
+          </header>
+
+          <p style={{ marginTop: 8 }}>
+            <strong>Said:</strong> {c.comment}
+          </p>
+        </div>
+      </div>
+    ))
+  )}
+</div>
+
+
       </section>
 
       {/* BACK TO TOP */}
