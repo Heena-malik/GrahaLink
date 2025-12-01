@@ -28,7 +28,7 @@ const Navbar = () => {
 
         <Link to="/" className="nav-item">Home</Link>
         <Link to="/Freekundli" className="nav-item">Free Kundali</Link>
-        <Link to="/kundli-matching" className="nav-item">Kundali Matching</Link>
+        <Link to="/KundliCompatibility" className="nav-item">Kundli Compatibility</Link>
 
         {/* -------- CALCULATOR DROPDOWN -------- */}
 <div

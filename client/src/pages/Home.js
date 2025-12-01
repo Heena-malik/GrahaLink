@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import '../Components/Home.css';
 
 import homeGif from '../assets/home.gif';
+import { Link } from "react-router-dom";
 
 // Import feature icons
 import icon1 from '../assets/free-kundli.jpg';
@@ -12,6 +13,15 @@ import icon5 from '../assets/panchang.jpg';
 import icon6 from '../assets/muhurat.png';
 import icon7 from '../assets/calender.jpg';
 import icon8 from '../assets/learn-astrology.avif';
+import img1 from "../assets/astrologers/img1.jpg";
+import img2 from "../assets/astrologers/img2.jpeg";
+import img3 from "../assets/astrologers/img3.jpg";
+import img4 from "../assets/astrologers/img4.jpg";
+import img5 from "../assets/astrologers/img5.avif";
+import img6 from "../assets/astrologers/img6.jpg";
+import img7 from "../assets/astrologers/img7.jpg";
+import img8 from "../assets/astrologers/img8.jpg";
+
 
 /* ---------------------------------------------------
    SINGLE-OPEN ACCORDION
@@ -44,14 +54,29 @@ const Accordion = ({ title, content, isOpen, onToggle }) => {
   );
 };
 
-
 const Home = () => {
 
   const [openIndex, setOpenIndex] = useState(null);
 
+  /* ------------------ SCROLLER HOOKS ------------------ */
+  const scrollRef = useRef(null);
+
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -300, behavior: "smooth" });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 300, behavior: "smooth" });
+    }
+  };
+
   const toggleAccordion = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
+
 
 
   return (
@@ -120,6 +145,40 @@ const Home = () => {
         </div>
 
       </div>
+
+{/* ---------- AI ASTROLOGERS SLIDER ---------- */}
+<div className="ai-astro-wrapper">
+
+  <div className="ai-astro-header">
+    <h2>AI Astrologers</h2>
+  </div>
+
+  {/* LEFT SCROLL BUTTON */}
+  <button className="scroll-btn left" onClick={scrollLeft}>◀</button>
+
+  <div className="ai-astro-scroll" ref={scrollRef}>
+    {[
+      { name: "Arjun Pandit", price: "₹11/min", img: img1, link: "/astro/arjun" },
+      { name: "Mr. Krishnam", price: "₹16/min", img: img2, link: "/astro/krishnam" },
+      { name: "Love Guru", price: "₹21/min", img: img3, link: "/astro/loveguru" },
+      { name: "Swami Ji", price: "₹17/min", img: img4, link: "/astro/swami" },
+      { name: "Astro Ananya", price: "₹11/min", img: img5, link: "/astro/ananya" },
+      { name: "Arjun Pandit", price: "₹11/min", img: img6, link: "/astro/arjun" },
+      { name: "Mr. Krishnam", price: "₹16/min", img: img7, link: "/astro/krishnam" },
+      { name: "Love Guru", price: "₹21/min", img: img8, link: "/astro/loveguru" },
+    ].map((astro, index) => (
+      <Link to={astro.link} className="ai-astro-card" key={index}>
+        <img src={astro.img} alt={astro.name} />
+        <p className="ai-name">{astro.name}</p>
+        <p className="ai-price">{astro.price}</p>
+      </Link>
+    ))}
+  </div>
+
+  {/* RIGHT SCROLL BUTTON */}
+  <button className="scroll-btn right" onClick={scrollRight}>▶</button>
+</div>
+
 
       {/* ---------- CONTENT SECTION ---------- */}
       <div className="content-wrapper">

@@ -7,7 +7,7 @@ import Footer from './Components/Footer';
 
 import Home from './pages/Home';
 import FreeKundli from './pages/FreeKundli';
-// import Contact from './pages/Contact';
+import KundliCompatibility from './pages/KundliCompatibility';
 import SignIn from './pages/sign-In';
 import Register from './pages/Register'
 function App() {
@@ -19,7 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/FreeKundli" element={<FreeKundli />} />
-          {/* <Route path="/contact" element={<Contact />} /> */}
+          <Route path="/KundliCompatibility" element={<KundliCompatibility />} />
            <Route path="/signin" element={<SignIn />} /> 
             <Route path="/register" element={<Register />} /> 
         </Routes>
