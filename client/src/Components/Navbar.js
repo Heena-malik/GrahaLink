@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import logo from '../assets/logo.jpg';
+import { 
+  FaStar, FaMoon, FaSun, FaHeart, FaCalendarAlt, FaHome, 
+  FaBookOpen, FaChartPie, FaCompass 
+} from "react-icons/fa";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -23,81 +27,69 @@ const Navbar = () => {
       <div className="navbar-links">
 
         <Link to="/" className="nav-item">Home</Link>
-        <Link to="/Contact" className="nav-item">Free Kundali</Link>
+        <Link to="/Freekundli" className="nav-item">Free Kundali</Link>
         <Link to="/kundli-matching" className="nav-item">Kundali Matching</Link>
 
         {/* -------- CALCULATOR DROPDOWN -------- */}
-        <div
-          className="dropdown"
-          onMouseEnter={() => setMenuOpen(true)}
-          onMouseLeave={() => setMenuOpen(false)}
-        >
-          <div className="nav-item dropdown-toggle">Calculator ▾</div>
+<div
+  className="dropdown"
+  onMouseEnter={() => setMenuOpen(true)}
+  onMouseLeave={() => setMenuOpen(false)}
+>
+  <div className="nav-item dropdown-toggle">Calculator ▾</div>
 
-          <div className={`dropdown-menu ${menuOpen ? "show" : ""}`}>
-            <Link to="/rashi" className="dropdown-item">➜ Rashi Calculator</Link>
-            <Link to="/nakshatra" className="dropdown-item">➜ Nakshatra Calculator</Link>
-            <Link to="/gana" className="dropdown-item">➜ Gana Calculator</Link>
-            <Link to="/dasha" className="dropdown-item">➜ Dasha Calculator</Link>
-            <Link to="/mangal-dasha" className="dropdown-item">➜ Mangal Dasha Calculator</Link>
-            <Link to="/sade-sati" className="dropdown-item">➜ Sade Sati Calculator</Link>
-            <Link to="/navamsa" className="dropdown-item">➜ Navamsa Calculator</Link>
-            <Link to="/kaal-sarp" className="dropdown-item">➜ Kaal Sarp Dosh Calculator</Link>
-          </div>
-        </div>
+  <div className={`dropdown-menu ${menuOpen ? "show" : ""}`}>
+    <Link to="/rashi" className="dropdown-item"><FaMoon className="menu-icon" /> Rashi Calculator</Link>
+    <Link to="/nakshatra" className="dropdown-item"><FaStar className="menu-icon" /> Nakshatra Calculator</Link>
+    <Link to="/gana" className="dropdown-item"><FaCompass className="menu-icon" /> Gana Calculator</Link>
+  </div>
+</div>
 
-        {/* -------- MUHURAT DROPDOWN -------- */}
-        <div
-          className="dropdown"
-          onMouseEnter={() => setMuhuratOpen(true)}
-          onMouseLeave={() => setMuhuratOpen(false)}
-        >
-          <div className="nav-item dropdown-toggle">Muhurat ▾</div>
 
-          <div className={`dropdown-menu ${muhuratOpen ? "show" : ""}`}>
-            <Link to="/vivah-muhurat" className="dropdown-item">➜ Vivah Muhurat</Link>
-            <Link to="/griha-pravesh" className="dropdown-item">➜ Griha Pravesh Muhurat</Link>
-            <Link to="/namkaran" className="dropdown-item">➜ Namkaran Muhurat</Link>
-            <Link to="/mundan" className="dropdown-item">➜ Mundan Muhurat</Link>
-            <Link to="/car-purchase" className="dropdown-item">➜ Vehicle Purchase Muhurat</Link>
-            <Link to="/business-muhurat" className="dropdown-item">➜ Business / Shop Muhurat</Link>
-            <Link to="/bhumi-poojan" className="dropdown-item">➜ Bhumi Poojan Muhurat</Link>
-          </div>
-        </div>
+{/* -------- MUHURAT DROPDOWN -------- */}
+<div
+  className="dropdown"
+  onMouseEnter={() => setMuhuratOpen(true)}
+  onMouseLeave={() => setMuhuratOpen(false)}
+>
+  <div className="nav-item dropdown-toggle">Muhurat ▾</div>
 
-        {/* -------- CALENDAR DROPDOWN -------- */}
-        <div
-          className="dropdown"
-          onMouseEnter={() => setCalendarOpen(true)}
-          onMouseLeave={() => setCalendarOpen(false)}
-        >
-          <div className="nav-item dropdown-toggle">Calendar ▾</div>
+  <div className={`dropdown-menu ${muhuratOpen ? "show" : ""}`}>
+    <Link to="/vivah-muhurat" className="dropdown-item"><FaHeart className="menu-icon" /> Vivah Muhurat</Link>
+    <Link to="/griha-pravesh" className="dropdown-item"><FaHome className="menu-icon" /> Griha Pravesh Muhurat</Link>
+  </div>
+</div>
 
-          <div className={`dropdown-menu ${calendarOpen ? "show" : ""}`}>
-            <Link to="/hindu-calendar" className="dropdown-item">➜ Hindu Calendar</Link>
-            <Link to="/panchang" className="dropdown-item">➜ Daily Panchang</Link>
-            <Link to="/festival-calendar" className="dropdown-item">➜ Festival Calendar</Link>
-            <Link to="/vrat-calendar" className="dropdown-item">➜ Vrat & Upvas Calendar</Link>
-            <Link to="/planet-calendar" className="dropdown-item">➜ Planet Transit Calendar</Link>
-          </div>
-        </div>
 
-        {/* -------- SOFTWARE DROPDOWN -------- */}
-        <div
-          className="dropdown"
-          onMouseEnter={() => setSoftwareOpen(true)}
-          onMouseLeave={() => setSoftwareOpen(false)}
-        >
-          <div className="nav-item dropdown-toggle">Software ▾</div>
+{/* -------- CALENDAR DROPDOWN -------- */}
+<div
+  className="dropdown"
+  onMouseEnter={() => setCalendarOpen(true)}
+  onMouseLeave={() => setCalendarOpen(false)}
+>
+  <div className="nav-item dropdown-toggle">Calendar ▾</div>
 
-          <div className={`dropdown-menu ${softwareOpen ? "show" : ""}`}>
-            <Link to="/kundli-software" className="dropdown-item">➜ Kundli Software</Link>
-            <Link to="/vastu-software" className="dropdown-item">➜ Vastu Software</Link>
-            <Link to="/panchang-software" className="dropdown-item">➜ Panchang Software</Link>
-            <Link to="/prediction-software" className="dropdown-item">➜ Prediction Software</Link>
-            <Link to="/matchmaking-software" className="dropdown-item">➜ Matchmaking Software</Link>
-          </div>
-        </div>
+  <div className={`dropdown-menu ${calendarOpen ? "show" : ""}`}>
+    <Link to="/hindu-calendar" className="dropdown-item"><FaCalendarAlt className="menu-icon" /> Hindu Calendar</Link>
+    <Link to="/panchang" className="dropdown-item"><FaSun className="menu-icon" /> Daily Panchang</Link>
+  </div>
+</div>
+
+
+{/* -------- SOFTWARE DROPDOWN -------- */}
+<div
+  className="dropdown"
+  onMouseEnter={() => setSoftwareOpen(true)}
+  onMouseLeave={() => setSoftwareOpen(false)}
+>
+  <div className="nav-item dropdown-toggle">Software ▾</div>
+
+  <div className={`dropdown-menu ${softwareOpen ? "show" : ""}`}>
+    <Link to="/kundli-software" className="dropdown-item"><FaChartPie className="menu-icon" /> Kundli Software</Link>
+    <Link to="/vastu-software" className="dropdown-item"><FaHome className="menu-icon" /> Vastu Software</Link>
+    <Link to="/panchang-software" className="dropdown-item"><FaBookOpen className="menu-icon" /> Panchang Software</Link>
+  </div>
+</div>
 
         {/* ---- ONLY SIGN IN BUTTON ---- */}
         <Link to="/signin" className="nav-item nav-register">Sign In</Link>

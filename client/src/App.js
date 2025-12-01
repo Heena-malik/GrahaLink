@@ -6,8 +6,8 @@ import Footer from './Components/Footer';
 
 
 import Home from './pages/Home';
-import About from './pages/About';
-import Contact from './pages/Contact';
+import FreeKundli from './pages/FreeKundli';
+// import Contact from './pages/Contact';
 import SignIn from './pages/sign-In';
 import Register from './pages/Register'
 function App() {
@@ -18,8 +18,8 @@ function App() {
       <main style={{ minHeight: '80vh', padding: '20px' }}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/FreeKundli" element={<FreeKundli />} />
+          {/* <Route path="/contact" element={<Contact />} /> */}
            <Route path="/signin" element={<SignIn />} /> 
             <Route path="/register" element={<Register />} /> 
         </Routes>
