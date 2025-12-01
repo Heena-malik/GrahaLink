@@ -24,7 +24,7 @@
   max-width: 550px;
   padding: 25px;
   border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
@@ -38,7 +38,8 @@
   margin-bottom: 6px;
 }
 
-input, select {
+input,
+select {
   width: 100%;
   height: 42px;
   padding: 0 10px;

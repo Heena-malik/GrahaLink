@@ -14,30 +14,31 @@ import icon7 from '../assets/calender.jpg';
 import icon8 from '../assets/learn-astrology.avif';
 
 /* ---------------------------------------------------
-   FIXED ACCORDION — AUTO HEIGHT LIKE NETFLIX
+   SINGLE-OPEN ACCORDION
 --------------------------------------------------- */
-const Accordion = ({ title, content }) => {
-  const [open, setOpen] = useState(false);
+const Accordion = ({ title, content, isOpen, onToggle }) => {
   const contentRef = useRef(null);
 
   useEffect(() => {
     if (!contentRef.current) return;
-    if (open) {
-      contentRef.current.style.maxHeight = contentRef.current.scrollHeight + "px";
-    } else {
-      contentRef.current.style.maxHeight = "0px";
-    }
-  }, [open]);
+    contentRef.current.style.maxHeight = isOpen
+      ? contentRef.current.scrollHeight + "px"
+      : "0px";
+  }, [isOpen]);
 
   return (
-    <div className={`accordion-item ${open ? 'open' : ''}`}>
-      <button className="accordion-header" onClick={() => setOpen(!open)}>
+    <div className={`accordion-item ${isOpen ? "open" : ""}`}>
+      <button className="accordion-header" onClick={onToggle}>
         {title}
-        <span className={`arrow ${open ? 'rotate' : ''}`}>▼</span>
+        <span className={`arrow ${isOpen ? "rotate" : ""}`}>▼</span>
       </button>
 
       <div ref={contentRef} className="accordion-content">
-        <p>{content}</p>
+        <div className="accordion-inner">
+          {content.split("\n").map((line, index) => (
+            <p key={index}>{line}</p>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -45,6 +46,14 @@ const Accordion = ({ title, content }) => {
 
 
 const Home = () => {
+
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const toggleAccordion = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+
   return (
     <div className="home-wrapper">
 
@@ -67,7 +76,7 @@ const Home = () => {
 
       </div>
 
-      {/* ---------- FEATURE CARDS SECTION ---------- */}
+      {/* ---------- FEATURE CARDS ---------- */}
       <div className="feature-grid">
 
         <div className="feature-card">
@@ -128,18 +137,46 @@ const Home = () => {
 
         <Accordion
           title="What is GrahaLink?"
-          content="GrahaLink provides real-time planetary positions, degrees, zodiac signs and more."
+          isOpen={openIndex === 0}
+          onToggle={() => toggleAccordion(0)}
+          content={`GrahaLink is a smart astrology platform designed to provide accurate planetary data, personalized kundli generation, daily panchang, and various astrological calculators.
+It helps users explore:
+• Real-time planetary positions  
+• Rashi and Nakshatra details  
+• Muhurat timings  
+• Kundali and matchmaking insights  
+GrahaLink aims to make astrology simple, fast, and reliable for everyone.`}
         />
 
         <Accordion
           title="Is the tool free?"
-          content="Yes! GrahaLink is completely free to use."
+          isOpen={openIndex === 1}
+          onToggle={() => toggleAccordion(1)}
+          content={`Yes, GrahaLink is free to use.
+You can access features like:
+• Kundli generation  
+• Rashi & Nakshatra calculator  
+• Panchang  
+• Vivah & Griha Pravesh Muhurat  
+• Basic predictions  
+
+Some advanced features like personalized reports may be premium, but all essential tools remain free.`}
         />
 
         <Accordion
           title="Do I need to create an account?"
-          content="No account is required to access planetary data."
+          isOpen={openIndex === 2}
+          onToggle={() => toggleAccordion(2)}
+          content={`No, you can use GrahaLink without creating an account.
+However, creating an account gives extra benefits such as:
+• Saving your Kundli  
+• Storing multiple family members’ charts  
+• Access to past reports  
+• Personalized dashboard  
+
+Account creation is optional but useful.`}
         />
+
       </div>
 
     </div>

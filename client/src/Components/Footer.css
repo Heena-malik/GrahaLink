@@ -1,0 +1,201 @@
+/* ---------------- FOOTER MAIN ---------------- */
+.footer {
+  background: #000000;
+  color: white;
+  padding: 50px 20px;
+  margin-top: 20px;
+  border-top: 2px solid #ff8c00;
+}
+
+/* ------------ CONTENT WRAPPER ------------ */
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 35px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ------------- SECTIONS ------------- */
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-section h2,
+.footer-section h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #ffb86c; /* Golden text for elegant contrast */
+}
+
+/* ---------- TEXT ---------- */
+.footer-section p,
+.footer-section li {
+  font-size: 15px;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.footer-section li {
+  list-style: none;
+  margin: 6px 0;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.footer-section li:hover {
+  color: #ff8c00;
+  transform: translateX(5px);
+}
+
+/* ---------- ADDRESS BOX ---------- */
+.address-box {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 12px 15px;
+  border-radius: 10px;
+  border-left: 4px solid #ff8c00;
+  margin-top: 12px;
+}
+
+.address-box p {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  opacity: 0.9;
+  transition: 0.3s ease;
+}
+
+.address-box p svg {
+  color: #ff8c00; /* Match theme */
+  font-size: 20px; /* Slightly bigger icons */
+  transition: 0.3s ease;
+}
+
+.address-box p:hover {
+  color: #ffb86c;
+  transform: translateX(5px);
+}
+
+.address-box p:hover svg {
+  color: #ffb86c;
+}
+
+/* ---------------- SOCIAL ICONS ---------------- */
+.social-icons {
+  margin-top: 15px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.social-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.social-img {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  object-fit: cover;
+  transition: 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+}
+
+.social-img:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 15px rgba(255, 140, 0, 0.8);
+}
+
+/* ---------- FOOTER BOTTOM ---------- */
+.footer-bottom {
+  text-align: center;
+  margin-top: 35px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 14px;
+  color: #ffc994;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 20px;
+  }
+
+  .social-icons {
+    justify-content: flex-start;
+  }
+
+  .social-img {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-section h2 {
+    font-size: 20px;
+  }
+
+  .footer-section h3 {
+    font-size: 18px;
+  }
+
+  .social-img {
+    width: 30px;
+    height: 30px;
+  }
+}
+/* ------- COMMENT SEARCH BAR (ICON IN BUTTON) ------- */
+
+.comment-search {
+  margin-top: 40px; /* Increased top margin */
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Space between input & button */
+}
+
+/* Input box styling */
+.comment-search input {
+  width: 260px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #ff8c00;
+  background: #111;
+  color: #fff;
+  font-size: 16px;
+  outline: none;
+}
+
+.comment-search input::placeholder {
+  color: #b8b8b8;
+}
+
+/* Search button styling */
+.search-btn {
+  padding: 12px 18px;
+  font-size: 18px;
+  background-color: #ff8c00;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease;
+}
+
+/* Button hover effect */
+.search-btn:hover {
+  background-color: #ffa733;
+  transform: translateY(-2px);
+}

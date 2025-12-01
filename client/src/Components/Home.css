@@ -301,7 +301,7 @@
 
 .accordion-content p,
 .accordion-inner p {
-  margin: 0;
+  margin-left: 30;
   color: #444;
   font-size: 15.5px;
   line-height: 1.6;
