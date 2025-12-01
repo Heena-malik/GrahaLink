@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+import Assistant from "./Components/AiAssistant/Assistant";
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 
@@ -23,6 +23,8 @@ function App() {
            <Route path="/signin" element={<SignIn />} /> 
             <Route path="/register" element={<Register />} /> 
         </Routes>
+         <Assistant />
+
       </main>
 
       <Footer />

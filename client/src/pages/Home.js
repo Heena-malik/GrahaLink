@@ -13,11 +13,11 @@ import icon5 from '../assets/panchang.jpg';
 import icon6 from '../assets/muhurat.png';
 import icon7 from '../assets/calender.jpg';
 import icon8 from '../assets/learn-astrology.avif';
-import img1 from "../assets/astrologers/img1.jpg";
+import img1 from "../assets/astrologers/img1.png";
 import img2 from "../assets/astrologers/img2.jpeg";
-import img3 from "../assets/astrologers/img3.jpg";
+import img3 from "../assets/astrologers/img3.png";
 import img4 from "../assets/astrologers/img4.jpg";
-import img5 from "../assets/astrologers/img5.avif";
+import img5 from "../assets/astrologers/img5.png";
 import img6 from "../assets/astrologers/img6.jpg";
 import img7 from "../assets/astrologers/img7.jpg";
 import img8 from "../assets/astrologers/img8.jpg";
@@ -76,7 +76,7 @@ const Home = () => {
   const toggleAccordion = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
-
+  
 
 
   return (
@@ -150,7 +150,7 @@ const Home = () => {
 <div className="ai-astro-wrapper">
 
   <div className="ai-astro-header">
-    <h2>AI Astrologers</h2>
+    <h2>Book Appointments</h2>
   </div>
 
   {/* LEFT SCROLL BUTTON */}
