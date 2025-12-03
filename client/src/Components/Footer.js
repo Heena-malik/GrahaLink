@@ -57,7 +57,7 @@ const Footer = () => {
           <div className="social-icons">
             <button className="social-btn">
               <img src={facebookImg} alt="Facebook" className="social-img" />
-            </button>
+            </button> 
 
             <button className="social-btn">
               <img src={instagramImg} alt="Instagram" className="social-img" />

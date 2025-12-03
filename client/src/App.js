@@ -1,9 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Assistant from "./Components/AiAssistant/Assistant";
 import Header from './Components/Header';
 import Footer from './Components/Footer';
-
+import Arjun from "./pages/Arjun";
 
 import Home from './pages/Home';
 import FreeKundli from './pages/FreeKundli';
@@ -22,8 +21,9 @@ function App() {
           <Route path="/KundliCompatibility" element={<KundliCompatibility />} />
            <Route path="/signin" element={<SignIn />} /> 
             <Route path="/register" element={<Register />} /> 
+             <Route path="/astro/arjun" element={<Arjun />} />
         </Routes>
-         <Assistant />
+         
 
       </main>
 
