@@ -1,6 +1,6 @@
 import React from "react";
-import "./AstroProfile.css";
-import imgKrishnam from "../assets/astrologers/krishnam.jpg";
+import "../Components/AstroProfile.css";
+import imgKrishnam from "../assets/astrologers/img2.jpeg";
 
 const Krishnam = () => {
   return (

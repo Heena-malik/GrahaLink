@@ -1,6 +1,6 @@
 import React from "react";
-import "./AstroProfile.css";
-import imgSwami from "../assets/astrologers/swami.jpg";
+import "../Components/AstroProfile.css";
+import imgSwami from "../assets/astrologers/img4.jpg";
 
 const Swami = () => {
   return (
