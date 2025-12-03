@@ -2,13 +2,14 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
-import Arjun from "./pages/Arjun";
+import Arjun from './pages/Arjun';
 
 import Home from './pages/Home';
 import FreeKundli from './pages/FreeKundli';
 import KundliCompatibility from './pages/KundliCompatibility';
 import SignIn from './pages/sign-In';
-import Register from './pages/Register'
+import Register from './pages/Register';
+
 function App() {
   return (
     <Router>
@@ -19,9 +20,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/FreeKundli" element={<FreeKundli />} />
           <Route path="/KundliCompatibility" element={<KundliCompatibility />} />
-           <Route path="/signin" element={<SignIn />} /> 
-            <Route path="/register" element={<Register />} /> 
-             <Route path="/astro/arjun" element={<Arjun />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/astro/arjun" element={<Arjun />} />
         </Routes>
          
 
