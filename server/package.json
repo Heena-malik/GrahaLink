@@ -22,6 +22,10 @@
     "mongoose": "^8.19.2",
     "multer": "^1.4.5-lts.1",
     "nodemon": "^3.1.10",
+<<<<<<< HEAD
+=======
+    "openai": "^6.9.1",
+>>>>>>> 58363c4612e5afdd6d6a144f032786e3b3f208d9
     "paypal-rest-sdk": "^1.8.1"
   }
 }
