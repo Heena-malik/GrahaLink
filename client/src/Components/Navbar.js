@@ -17,44 +17,44 @@ const Navbar = () => {
     <nav className="navbar">
 
       {/* LEFT – LOGO */}
-<div className="navbar-left">
-  <img src={logo} alt="GrahaLink Logo" className="navbar-logo" />
-  <div className="logo-text">GrahaLink</div>
-</div>
-
+      <div className="navbar-left">
+        <img src={logo} alt="GrahaLink Logo" className="navbar-logo" />
+        <div className="logo-text">GrahaLink</div>
+      </div>
 
       {/* RIGHT – NAV LINKS */}
       <div className="navbar-links">
-
         <Link to="/" className="nav-item">Home</Link>
         <Link to="/Freekundli" className="nav-item">Free Kundali</Link>
         <Link to="/KundliCompatibility" className="nav-item">Kundli Compatibility</Link>
 
         {/* -------- CALCULATOR DROPDOWN -------- */}
-<div
-  className="dropdown"
-  onMouseEnter={() => setMenuOpen(true)}
-  onMouseLeave={() => setMenuOpen(false)}
->
-  <div className="nav-item dropdown-toggle">Calculator ▾</div>
+        <div
+          className="dropdown"
+          onMouseEnter={() => setMenuOpen(true)}
+          onMouseLeave={() => setMenuOpen(false)}
+        >
+          <div className="nav-item dropdown-toggle">Calculator ▾</div>
+          <div className={`dropdown-menu ${menuOpen ? "show" : ""}`}>
+            <Link to="/rashi" className="dropdown-item"><FaMoon className="menu-icon" /> Rashi Calculator</Link>
+            <Link to="/nakshatra" className="dropdown-item"><FaStar className="menu-icon" /> Nakshatra Calculator</Link>
+            <Link to="/gana" className="dropdown-item"><FaCompass className="menu-icon" /> Gana Calculator</Link>
+          </div>
+        </div>
 
-  <div className={`dropdown-menu ${menuOpen ? "show" : ""}`}>
-    <Link to="/rashi" className="dropdown-item"><FaMoon className="menu-icon" /> Rashi Calculator</Link>
-    <Link to="/nakshatra" className="dropdown-item"><FaStar className="menu-icon" /> Nakshatra Calculator</Link>
-    <Link to="/gana" className="dropdown-item"><FaCompass className="menu-icon" /> Gana Calculator</Link>
-  </div>
-</div>
+        {/* -------- MUHURAT DROPDOWN -------- */}
+        <div
+          className="dropdown"
+          onMouseEnter={() => setMuhuratOpen(true)}
+          onMouseLeave={() => setMuhuratOpen(false)}
+        >
+          <div className="nav-item dropdown-toggle">Muhurat ▾</div>
+          <div className={`dropdown-menu ${muhuratOpen ? "show" : ""}`}>
+            <Link to="/vivah-muhurat" className="dropdown-item"><FaHeart className="menu-icon" /> Vivah Muhurat</Link>
+            <Link to="/griha-pravesh" className="dropdown-item"><FaHome className="menu-icon" /> Griha Pravesh Muhurat</Link>
+          </div>
+        </div>
 
-
-{/* -------- MUHURAT DROPDOWN -------- */}
-<div
-  className="dropdown"
-  onMouseEnter={() => setMuhuratOpen(true)}
-  onMouseLeave={() => setMuhuratOpen(false)}
->
-  <div className="nav-item dropdown-toggle">Muhurat ▾</div>
-
-<<<<<<< HEAD
         {/* -------- CALENDAR DROPDOWN -------- */}
         <div
           className="dropdown"
@@ -62,16 +62,12 @@ const Navbar = () => {
           onMouseLeave={() => setCalendarOpen(false)}
         >
           <div className="nav-item dropdown-toggle">Calendar ▾</div>
-=======
-  <div className={`dropdown-menu ${muhuratOpen ? "show" : ""}`}>
-    <Link to="/vivah-muhurat" className="dropdown-item"><FaHeart className="menu-icon" /> Vivah Muhurat</Link>
-    <Link to="/griha-pravesh" className="dropdown-item"><FaHome className="menu-icon" /> Griha Pravesh Muhurat</Link>
-  </div>
-</div>
->>>>>>> 58363c4612e5afdd6d6a144f032786e3b3f208d9
+          <div className={`dropdown-menu ${calendarOpen ? "show" : ""}`}>
+            <Link to="/hindu-calendar" className="dropdown-item"><FaCalendarAlt className="menu-icon" /> Hindu Calendar</Link>
+            <Link to="/panchang" className="dropdown-item"><FaSun className="menu-icon" /> Daily Panchang</Link>
+          </div>
+        </div>
 
-
-<<<<<<< HEAD
         {/* -------- SOFTWARE DROPDOWN -------- */}
         <div
           className="dropdown"
@@ -79,45 +75,17 @@ const Navbar = () => {
           onMouseLeave={() => setSoftwareOpen(false)}
         >
           <div className="nav-item dropdown-toggle">Software ▾</div>
-=======
-{/* -------- CALENDAR DROPDOWN -------- */}
-<div
-  className="dropdown"
-  onMouseEnter={() => setCalendarOpen(true)}
-  onMouseLeave={() => setCalendarOpen(false)}
->
-  <div className="nav-item dropdown-toggle">Calendar ▾</div>
->>>>>>> 58363c4612e5afdd6d6a144f032786e3b3f208d9
+          <div className={`dropdown-menu ${softwareOpen ? "show" : ""}`}>
+            <Link to="/kundli-software" className="dropdown-item"><FaChartPie className="menu-icon" /> Kundli Software</Link>
+            <Link to="/vastu-software" className="dropdown-item"><FaHome className="menu-icon" /> Vastu Software</Link>
+            <Link to="/panchang-software" className="dropdown-item"><FaBookOpen className="menu-icon" /> Panchang Software</Link>
+          </div>
+        </div>
 
-  <div className={`dropdown-menu ${calendarOpen ? "show" : ""}`}>
-    <Link to="/hindu-calendar" className="dropdown-item"><FaCalendarAlt className="menu-icon" /> Hindu Calendar</Link>
-    <Link to="/panchang" className="dropdown-item"><FaSun className="menu-icon" /> Daily Panchang</Link>
-  </div>
-</div>
-
-<<<<<<< HEAD
-=======
-
-{/* -------- SOFTWARE DROPDOWN -------- */}
-<div
-  className="dropdown"
-  onMouseEnter={() => setSoftwareOpen(true)}
-  onMouseLeave={() => setSoftwareOpen(false)}
->
-  <div className="nav-item dropdown-toggle">Software ▾</div>
-
-  <div className={`dropdown-menu ${softwareOpen ? "show" : ""}`}>
-    <Link to="/kundli-software" className="dropdown-item"><FaChartPie className="menu-icon" /> Kundli Software</Link>
-    <Link to="/vastu-software" className="dropdown-item"><FaHome className="menu-icon" /> Vastu Software</Link>
-    <Link to="/panchang-software" className="dropdown-item"><FaBookOpen className="menu-icon" /> Panchang Software</Link>
-  </div>
-</div>
-
->>>>>>> 58363c4612e5afdd6d6a144f032786e3b3f208d9
-        {/* ---- ONLY SIGN IN BUTTON ---- */}
+        {/* ---- SIGN IN BUTTON ---- */}
         <Link to="/signin" className="nav-item nav-register">Sign In</Link>
-
       </div>
+
     </nav>
   );
 };

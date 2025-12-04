@@ -79,7 +79,7 @@ select {
 .submit-btn {
   width: 100%;
   height: 45px;
-  background: #2563eb;
+  background: #e9b74a;
   color: white;
   font-size: 16px;
   border-radius: 10px;
@@ -89,5 +89,5 @@ select {
 }
 
 .submit-btn:hover {
-  background: #1e4ed8;
+  background: #a76a14;
 }

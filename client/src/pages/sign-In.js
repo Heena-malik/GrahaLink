@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState } from "react";
 import "../Components/SignIn.css";
 import { FaEnvelope, FaLock, FaStar } from "react-icons/fa";
@@ -27,7 +26,7 @@ const SignIn = () => {
       alert("Login Successful!");
 
       // Redirect to dashboard or home page
-      window.location.href = "/dashboard"; 
+      window.location.href = "/dashboard";
     } catch (err) {
       setError(
         err.response?.data?.msg || "Something went wrong. Try again!"
@@ -36,108 +35,56 @@ const SignIn = () => {
 
     setLoading(false);
   };
-=======
-// import React, { useState } from "react";
-// import "../Components/SignIn.css";
-// import { FaEnvelope, FaLock, FaStar } from "react-icons/fa";
-// import axios from "axios";
 
-// const SignIn = () => {
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   const [loading, setLoading] = useState(false);
-//   const [error, setError] = useState("");
+  return (
+    <div className="signin-wrapper">
+      <div className="signin-box">
 
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     setLoading(true);
-//     setError("");
->>>>>>> 58363c4612e5afdd6d6a144f032786e3b3f208d9
+        <h2 className="signin-title">
+          <FaStar className="star-icon" /> Sign In
+        </h2>
 
-//     try {
-//       const res = await axios.post("http://localhost:5000/api/auth/login", {
-//         email,
-//         password,
-//       });
-
-//       // Store token in localStorage
-//       localStorage.setItem("token", res.data.token);
-
-<<<<<<< HEAD
         {error && <p className="error-msg">{error}</p>}
 
         <form onSubmit={handleSubmit}>
-=======
-//       // alert("Login Successful!");
->>>>>>> 58363c4612e5afdd6d6a144f032786e3b3f208d9
 
-//       // Redirect to dashboard or home page
-//       window.location.href = "/dashboard"; 
-//     } catch (err) {
-//       setError(
-//         err.response?.data?.msg || "Something went wrong. Try again!"
-//       );
-//     }
+          {/* Email */}
+          <div className="input-group">
+            <FaEnvelope className="input-icon" />
+            <input
+              type="email"
+              placeholder="Enter your Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
 
-//     setLoading(false);
-//   };
+          {/* Password */}
+          <div className="input-group">
+            <FaLock className="input-icon" />
+            <input
+              type="password"
+              placeholder="Enter your Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
 
-<<<<<<< HEAD
           {/* Button */}
           <button type="submit" className="signin-btn" disabled={loading}>
             {loading ? "Signing in..." : "Sign In"}
           </button>
-=======
-//   return (
-//     <div className="signin-wrapper">
-//       <div className="signin-box">
->>>>>>> 58363c4612e5afdd6d6a144f032786e3b3f208d9
 
-//         <h2 className="signin-title">
-//           <FaStar className="star-icon" /> Sign In
-//         </h2>
+          <p className="signup-text">
+            Don't have an account? <a href="/register">Register</a>
+          </p>
 
-//         {error && <p className="error-msg">{error}</p>}
+        </form>
+      </div>
+    </div>
+  );
+};
 
-//         <form onSubmit={handleSubmit}>
-
-//           {/* Email */}
-//           <div className="input-group">
-//             <FaEnvelope className="input-icon" />
-//             <input
-//               type="email"
-//               placeholder="Enter your Email"
-//               value={email}
-//               onChange={(e) => setEmail(e.target.value)}
-//               required
-//             />
-//           </div>
-
-//           {/* Password */}
-//           <div className="input-group">
-//             <FaLock className="input-icon" />
-//             <input
-//               type="password"
-//               placeholder="Enter your Password"
-//               value={password}
-//               onChange={(e) => setPassword(e.target.value)}
-//               required
-//             />
-//           </div>
-
-//           {/* Button */}
-//           <button type="submit" className="signin-btn" disabled={loading}>
-//             {loading ? "Signing in..." : "Sign In"}
-//           </button>
-
-//           <p className="signup-text">
-//             Don't have an account? <a href="/register">Register</a>
-//           </p>
-
-//         </form>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default SignIn;
+export default SignIn;

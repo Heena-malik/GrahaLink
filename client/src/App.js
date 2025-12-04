@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ChatBot from "./Components/chatbot";
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import Arjun from './pages/Arjun';
@@ -12,6 +13,7 @@ import FreeKundli from './pages/FreeKundli';
 import KundliCompatibility from './pages/KundliCompatibility';
 import SignIn from './pages/sign-In';
 import Register from './pages/Register';
+// import ChatBot from "./Components/chatbot";
 
 function App() {
   return (
@@ -30,12 +32,15 @@ function App() {
             <Route path="/astro/Swami" element={<Swami />} />
              <Route path="/astro/Ananya" element={<Ananya />} />
              <Route path="/astro/Krishnam" element={<Krishnam />} />
+               {/* <Route path="/chatbot" element={<ChatBot />} /> */}
+             
         </Routes>
          
 
       </main>
 
       <Footer />
+       <ChatBot />
     </Router>
   );
 }
