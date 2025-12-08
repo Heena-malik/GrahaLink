@@ -1,18 +1,20 @@
-import React, { useState, useRef, useEffect } from 'react';
-import '../Components/Home.css';
+import React, { useState, useRef, useEffect } from "react";
+import "../Components/Home.css";
 
-import homeGif from '../assets/home.gif';
-import { Link, useNavigate } from "react-router-dom";
+// --- ALL REQUIRED ASSET IMPORTS ARE HERE ---
+import homeGif from "../assets/home.gif";
+import icon1 from "../assets/free-kundli.jpg";
+import icon2 from "../assets/kundli-match.png";
+import icon3 from "../assets/jyotish-tool.png";
+import icon4 from "../assets/live-transit.jpg";
+import icon5 from "../assets/panchang.jpg";
+import icon6 from "../assets/muhurat.png";
+import icon7 from "../assets/calender.jpg";
+import icon8 from "../assets/learn-astrology.avif";
+import Pandit from "../assets/chatbot.webp";
 
-// Import feature icons
-import icon1 from '../assets/free-kundli.jpg';
-import icon2 from '../assets/kundli-match.png';
-import icon3 from '../assets/jyotish-tool.png';
-import icon4 from '../assets/live-transit.jpg';
-import icon5 from '../assets/panchang.jpg';
-import icon6 from '../assets/muhurat.png';
-import icon7 from '../assets/calender.jpg';
-import icon8 from '../assets/learn-astrology.avif';
+// --- LINK COMPONENT IMPORT ---
+import { Link } from "react-router-dom";
 
 const Accordion = ({ title, content, isOpen, onToggle }) => {
   const contentRef = useRef(null);
@@ -43,23 +45,54 @@ const Accordion = ({ title, content, isOpen, onToggle }) => {
 };
 
 const Home = () => {
-
-  const navigate = useNavigate(); // ⭐ added for routing
-
   const [openIndex, setOpenIndex] = useState(null);
   const [astrologers, setAstrologers] = useState([]);
 
   const scrollRef = useRef(null);
 
+  // SCROLL_DISTANCE is (Card Width: 172px + Gap: 22px) = 194px for desktop
+  const SCROLL_DISTANCE = 194;
+
   const scrollLeft = () => {
     if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: -300, behavior: "smooth" });
+      const scrollElement = scrollRef.current;
+      const currentScroll = scrollElement.scrollLeft;
+
+      // Calculate the new scroll position
+      const newScroll = currentScroll - SCROLL_DISTANCE;
+
+      // If already at the start, jump to the end for a looping effect
+      if (newScroll <= 0) {
+        scrollElement.scrollTo({
+          left: scrollElement.scrollWidth - scrollElement.clientWidth,
+          behavior: "smooth",
+        });
+      } else {
+        scrollElement.scrollBy({ left: -SCROLL_DISTANCE, behavior: "smooth" });
+      }
     }
   };
 
   const scrollRight = () => {
     if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: 300, behavior: "smooth" });
+      const scrollElement = scrollRef.current;
+      const currentScroll = scrollElement.scrollLeft;
+
+      // Calculate max scroll position
+      const maxScroll = scrollElement.scrollWidth - scrollElement.clientWidth;
+
+      // Calculate the new scroll position
+      const newScroll = currentScroll + SCROLL_DISTANCE;
+
+      // If near the end, jump to the start for a looping effect
+      if (newScroll >= maxScroll) {
+        scrollElement.scrollTo({
+          left: 0,
+          behavior: "smooth",
+        });
+      } else {
+        scrollElement.scrollBy({ left: SCROLL_DISTANCE, behavior: "smooth" });
+      }
     }
   };
 
@@ -95,35 +128,33 @@ const Home = () => {
 
   return (
     <div className="home-wrapper">
-
-      {/* ---------- TOP SECTION ---------- */}
       <div className="home-container">
-
         <div className="home-left">
           <h1 className="home-quote">
-            "Astrology is the study of the connection between celestial activity 
-            and earthly events. Those who practice astrology are called astrologers."
+            "Astrology is the study of the connection between celestial activity
+            and earthly events. Those who practice astrology are called
+            astrologers."
           </h1>
+          <div className="avatar-row">
+            <img src={Pandit} alt="Pandit Avatar" className="pandit-avatar" />
 
-          {/* ⭐ UPDATED BUTTON */}
-          <button 
-            className="get-started-btn" 
-            onClick={() => navigate("/signin")}
-          >
-            Get Started
-          </button>
+            <div className="bubble-btn-area">
+              <Link to="/signin" className="hint-bubble-link">
+                <div className="hint-bubble">
+                  <span className="hint-text">Start your Kundli now!</span>
+                </div>
+              </Link>
+            </div>
+          </div>
         </div>
 
         <div
           className="home-right"
           style={{ backgroundImage: `url(${homeGif})` }}
         ></div>
-
       </div>
-
       {/* ---------- FEATURE CARDS ---------- */}
       <div className="feature-grid">
-
         <div className="feature-card">
           <img src={icon1} alt="Free Kundli" />
           <p>Free Kundli</p>
@@ -163,18 +194,17 @@ const Home = () => {
           <img src={icon8} alt="Learn Astrology" />
           <p>Learn Astrology</p>
         </div>
-
       </div>
 
-      {/* ---------- AI ASTROLOGERS SLIDER ---------- */}
+      {/* ---------- Book appointment (SLIDING LOOP) ---------- */}
       <div className="ai-astro-wrapper">
-
         <div className="ai-astro-header">
           <h2>Book Appointments</h2>
         </div>
 
-        {/* LEFT SCROLL BUTTON */}
-        <button className="scroll-btn left" onClick={scrollLeft}>◀</button>
+        <button className="scroll-btn left" onClick={scrollLeft}>
+          ◀
+        </button>
 
         <div className="ai-astro-scroll" ref={scrollRef}>
           {astrologers.length === 0 ? (
@@ -190,8 +220,9 @@ const Home = () => {
           )}
         </div>
 
-        {/* RIGHT SCROLL BUTTON */}
-        <button className="scroll-btn right" onClick={scrollRight}>▶</button>
+        <button className="scroll-btn right" onClick={scrollRight}>
+          ▶
+        </button>
       </div>
 
       {/* ---------- CONTENT SECTION ---------- */}
@@ -199,7 +230,8 @@ const Home = () => {
         <div className="content-section">
           <h2 className="section-title">Live Planetary Positions</h2>
           <p className="section-text">
-            GrahaLink is a free astrological tool designed to show the exact position...
+            GrahaLink is a free astrological tool designed to show the exact
+            position...
           </p>
         </div>
       </div>
@@ -214,10 +246,10 @@ const Home = () => {
           onToggle={() => toggleAccordion(0)}
           content={`GrahaLink is a smart astrology platform designed to provide accurate planetary data, personalized kundli generation, daily panchang, and various astrological calculators.
 It helps users explore:
-• Real-time planetary positions  
-• Rashi and Nakshatra details  
-• Muhurat timings  
-• Kundali and matchmaking insights  
+• Real-time planetary positions  
+• Rashi and Nakshatra details  
+• Muhurat timings  
+• Kundali and matchmaking insights  
 GrahaLink aims to make astrology simple, fast, and reliable for everyone.`}
         />
 
@@ -227,11 +259,11 @@ GrahaLink aims to make astrology simple, fast, and reliable for everyone.`}
           onToggle={() => toggleAccordion(1)}
           content={`Yes, GrahaLink is free to use.
 You can access features like:
-• Kundli generation  
-• Rashi & Nakshatra calculator  
-• Panchang  
-• Vivah & Griha Pravesh Muhurat  
-• Basic predictions  
+• Kundli generation  
+• Rashi & Nakshatra calculator  
+• Panchang  
+• Vivah & Griha Pravesh Muhurat  
+• Basic predictions  
 
 Some advanced features like personalized reports may be premium, but all essential tools remain free.`}
         />
@@ -242,16 +274,14 @@ Some advanced features like personalized reports may be premium, but all essenti
           onToggle={() => toggleAccordion(2)}
           content={`No, you can use GrahaLink without creating an account.
 However, creating an account gives extra benefits such as:
-• Saving your Kundli  
-• Storing multiple family members’ charts  
-• Access to past reports  
-• Personalized dashboard  
+• Saving your Kundli  
+• Storing multiple family members’ charts  
+• Access to past reports  
+• Personalized dashboard  
 
 Account creation is optional but useful.`}
         />
-
       </div>
-
     </div>
   );
 };

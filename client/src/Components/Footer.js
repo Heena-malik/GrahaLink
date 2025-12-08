@@ -1,7 +1,6 @@
 import React from "react";
 import "../Components/Footer.css";
-import { FaSearch } from "react-icons/fa";
-
+// FaSearch is removed as the search bar is removed
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
 import facebookImg from "../assets/Facebook.webp";
@@ -13,9 +12,7 @@ import youtubeImg from "../assets/youtube.png";
 const Footer = () => {
   return (
     <footer className="footer">
-
       <div className="footer-content">
-
         {/* LEFT SECTION */}
         <div className="footer-section">
           <h2>GrahaLink</h2>
@@ -23,7 +20,6 @@ const Footer = () => {
             Your trusted partner for astrology, predictions, and horoscope
             guidance.
           </p>
-
           {/* ADDRESS BOX */}
           <div className="address-box">
             <p>
@@ -55,43 +51,77 @@ const Footer = () => {
           <h3>Follow Us</h3>
 
           <div className="social-icons">
-            <button className="social-btn">
-              <img src={facebookImg} alt="Facebook" className="social-img" />
-            </button> 
+            {/* FACEBOOK - REMEMBER TO REPLACE "GrahaLink" with your actual profile handle */}
+            <a
+              href="https://www.facebook.com/GrahaLink"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-btn-link"
+            >
+              <button className="social-btn">
+                <img src={facebookImg} alt="Facebook" className="social-img" />
+              </button>
+            </a>
 
-            <button className="social-btn">
-              <img src={instagramImg} alt="Instagram" className="social-img" />
-            </button>
+            {/* INSTAGRAM - REMEMBER TO REPLACE "GrahaLink" with your actual profile handle */}
+            <a
+              href="https://www.instagram.com/GrahaLink"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-btn-link"
+            >
+              <button className="social-btn">
+                <img
+                  src={instagramImg}
+                  alt="Instagram"
+                  className="social-img"
+                />
+              </button>
+            </a>
 
-            <button className="social-btn">
-              <img src={twitterImg} alt="Twitter" className="social-img" />
-            </button>
+            {/* TWITTER (X) - REMEMBER TO REPLACE "GrahaLink" with your actual profile handle */}
+            <a
+              href="https://twitter.com/GrahaLink"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-btn-link"
+            >
+              <button className="social-btn">
+                <img src={twitterImg} alt="Twitter" className="social-img" />
+              </button>
+            </a>
 
-            <button className="social-btn">
-              <img src={linkedinImg} alt="LinkedIn" className="social-img" />
-            </button>
+            {/* LINKEDIN - REMEMBER TO REPLACE "GrahaLink" with your actual company/profile handle */}
+            <a
+              href="https://www.linkedin.com/company/GrahaLink"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-btn-link"
+            >
+              <button className="social-btn">
+                <img src={linkedinImg} alt="LinkedIn" className="social-img" />
+              </button>
+            </a>
 
-            <button className="social-btn">
-              <img src={youtubeImg} alt="YouTube" className="social-img" />
-            </button>
+            {/* YOUTUBE - REMEMBER TO REPLACE "GrahaLink" with your actual channel ID/handle */}
+            <a
+              href="https://www.youtube.com/c/GrahaLink"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-btn-link"
+            >
+              <button className="social-btn">
+                <img src={youtubeImg} alt="YouTube" className="social-img" />
+              </button>
+            </a>
           </div>
-
-          {/* COMMENT SEARCH BAR */}
-          <div className="comment-search">
-  <input type="text" placeholder="Search comments..." />
-  <button className="search-btn">
-    <FaSearch />
-  </button>
-</div>
-
+          {/* SEARCH BAR REMOVED */}
         </div>
-
       </div>
 
       <div className="footer-bottom">
         © {new Date().getFullYear()} GrahaLink. All Rights Reserved.
       </div>
-
     </footer>
   );
 };

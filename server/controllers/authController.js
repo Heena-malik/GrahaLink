@@ -1,30 +1,29 @@
-import User from "../models/User.js";
 import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
+import User from "../models/User.js";
 
 // REGISTER USER
 export const registerUser = async (req, res) => {
   try {
     const { name, email, password } = req.body;
 
-    // Check existing user
-    const existingUser = await User.findOne({ email });
-    if (existingUser) return res.status(400).json({ msg: "Email already exists!" });
+    const userExists = await User.findOne({ email });
+    if (userExists) {
+      return res.status(400).json({ message: "Email already exists" });
+    }
 
-    // Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Create user
     const newUser = await User.create({
       name,
       email,
       password: hashedPassword,
     });
 
-    res.status(201).json({ msg: "User Registered Successfully!", newUser });
-
+    res
+      .status(201)
+      .json({ message: "User registered successfully", user: newUser });
   } catch (error) {
-    res.status(500).json({ msg: "Server Error!" });
+    res.status(500).json({ message: "Server error" });
   }
 };
 
@@ -33,31 +32,14 @@ export const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // Check user exists
     const user = await User.findOne({ email });
-    if (!user) return res.status(400).json({ msg: "User not found!" });
+    if (!user) return res.status(400).json({ message: "Invalid Email" });
 
-    // Compare passwords
     const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) return res.status(400).json({ msg: "Invalid password!" });
+    if (!isMatch) return res.status(400).json({ message: "Invalid Password" });
 
-    // JWT Token
-    const token = jwt.sign(
-      { id: user._id, email: user.email },
-      process.env.JWT_SECRET || "defaultsecret",
-      { expiresIn: "7d" }
-    );
-
-    res.json({
-      msg: "Login successful!",
-      token,
-      user: {
-        name: user.name,
-        email: user.email,
-      },
-    });
-
+    res.json({ message: "Login Successful", user });
   } catch (error) {
-    res.status(500).json({ msg: "Server Error!" });
+    res.status(500).json({ message: "Server error" });
   }
 };

@@ -14,12 +14,11 @@ const SignIn = () => {
     setLoading(true);
     setError("");
 
-    try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", {
+   try {
+      const res = await axios.post("http://localhost:5000/api/users/login", {
         email,
         password,
       });
-
       localStorage.setItem("token", res.data.token);
 
       window.location.href = "/";

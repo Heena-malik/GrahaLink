@@ -12,7 +12,6 @@ import FreeKundli from './pages/FreeKundli';
 import KundliCompatibility from './pages/KundliCompatibility';
 import SignIn from './pages/sign-In';
 import Register from './pages/Register';
-
 function App() {
   return (
     <Router>
@@ -30,6 +29,7 @@ function App() {
             <Route path="/astro/Swami" element={<Swami />} />
              <Route path="/astro/Ananya" element={<Ananya />} />
              <Route path="/astro/Krishnam" element={<Krishnam />} />
+              
         </Routes>
          
 

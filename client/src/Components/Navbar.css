@@ -6,67 +6,70 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  overflow: visible;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
+
 .logo-text {
   color: white;
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-size: 22px;
-  letter-spacing: 0.7px;
-  cursor: pointer;
-  transition: 0.3s ease;
 }
-.logo-text:hover {
-  color: #ffe2c4;
-  transform: translateY(-2px);
-}
+
 .navbar-left {
   display: flex;
   align-items: center;
   gap: 10px;
+
+  /* 🔥 FIX: remove underline from GrahaLink link */
+  text-decoration: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
 }
+
+.navbar-left * {
+  text-decoration: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
 .navbar-logo {
   width: 60px;
   height: 50px;
   border-radius: 50%;
   object-fit: cover;
-  cursor: pointer;
 }
+
 .navbar-links {
   display: flex;
   gap: 20px;
 }
+
 .nav-item {
   color: white;
   font-size: 16px;
   text-decoration: none;
   font-weight: 500;
-  transition: 0.3s;
 }
-.nav-item:hover {
-  color: #222;
-}
+
 .nav-register {
   background: white;
   color: #ff8c00;
   padding: 4px 10px;
   border-radius: 4px;
-  font-weight: bold;
   margin-right: 20px;
-  cursor: pointer;
 }
-.nav-register:hover {
-  background: #ffe2c4;
-} /* ---------------- DROPDOWN ---------------- */
+
+/* ---------------- DROPDOWN ---------------- */
 .dropdown {
   position: relative;
 }
+
 .dropdown-toggle {
-  cursor: pointer;
   color: white;
-} /* UPDATED ↓↓↓ */
+  cursor: pointer;
+}
+
 .dropdown-menu {
   position: absolute;
   top: 48px;
@@ -78,7 +81,6 @@
   padding: 15px 25px;
   border-radius: 8px;
   border: 1px solid #ccc;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px 20px;
@@ -87,105 +89,160 @@
   transition: 0.25s ease-in-out;
   z-index: 1000;
 }
+
 .dropdown:hover .dropdown-menu {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
 }
-.dropdown-item {
-  font-size: 16px;
-  color: #3e4b5e;
-  text-decoration: none;
-  padding: 2px 0;
-  display: flex; /* updated to align icon + text */
-  align-items: center;
-  transition: 0.25s;
-}
-.dropdown-item:hover {
-  color: #ff8c00;
-  padding-left: 5px;
-} /* -------- NAVBAR DROPDOWN ICON STYLES (NEW) -------- */
-.menu-icon {
-  font-size: 22px;
-  margin-right: 10px;
-  transition: 0.3s ease;
-  color: #ff8c00;
-}
-.dropdown-item:hover .menu-icon {
-  transform: scale(1.3) rotate(5deg);
-  color: #ff4d00;
-} /* ---------------- HOME SECTION ---------------- */
-@keyframes slideFadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.home-right {
-  width: 40%;
-  display: flex;
-  justify-content: flex-end;
-} /* Start Button */
-.get-started-btn {
-  margin-top: 25px;
-  padding: 14px 32px;
-  background-color: black;
-  color: #ee9c0d;
-  font-size: 18px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  transition: 0.3s ease;
-}
-.get-started-btn:hover {
-  background-color: white;
-  transform: translateY(-3px);
-} /* ---------------- CARDS ---------------- */
-.card-section {
-  display: flex;
-  gap: 25px;
-  justify-content: space-between;
-  margin-top: 40px;
-}
-.card {
-  flex: 1;
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-  transition: 0.3s ease;
-  text-align: center;
-  height: 420px;
-  display: flex;
+
+/* ---------------- DRAWER ---------------- */
+.hamburger {
+  width: 32px;
+  height: 26px;
+  display: none;
   flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 10001;
 }
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+
+.drawer-title,
+h1 {
+  color: #ff8c00;
 }
-.card-img {
+
+.hamburger div {
+  height: 4px;
+  background: white;
+  border-radius: 5px;
+}
+
+/* Overlay behind drawer */
+.drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 15px;
-} /* Contact Button */
-.contact-btn {
-  margin-top: auto;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  display: none;
+  z-index: 10000;
+}
+
+.drawer-overlay.show {
+  display: block;
+}
+
+/* Drawer container */
+.drawer {
+  position: fixed;
+  top: 0;
+  right: -280px;
+  width: 260px;
+  height: 100vh;
+  background: white;
+  padding: 25px 20px;
+  transition: 0.35s ease-in-out;
+  overflow-y: auto;
+  z-index: 10002;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.drawer.show {
+  right: 0;
+}
+
+.drawer-item {
+  display: block;
+  padding: 12px 0;
+  color: #333;
+  border-bottom: 1px solid #eee;
+}
+
+.drawer-dropdown-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ff8c00;
+  margin-top: 20px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #ffe3c0;
+  width: 100%;
+}
+
+.drawer-submenu {
+  margin-left: 5px;
+  margin-top: 10px;
+  border-left: 2px solid #ff8c00;
+  padding-left: 10px;
+}
+
+.drawer-subitem {
+  padding: 8px 0;
+  color: #333;
+  display: block;
+  text-decoration: none;
+}
+
+/* Remove underline */
+.drawer-subitem,
+.drawer-item {
+  text-decoration: none !important;
+}
+
+/* ---------------- MOBILE ONLY ---------------- */
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none !important;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* ---------------- DESKTOP DROPDOWN TEXT FIX ---------------- */
+@media (min-width: 769px) {
+  .dropdown-menu a {
+    color: #444 !important;
+    text-decoration: none !important;
+  }
+
+  .dropdown-menu a:hover {
+    color: #ff8c00 !important;
+    text-decoration: none !important;
+  }
+}
+/* ---------------- USER AVATAR ---------------- */
+.user-avatar {
+  width: 38px;
+  height: 38px;
+  background: white;
+  color: #ff8c00;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Mobile drawer avatar */
+.drawer-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.user-avatar.mobile {
   background: #ff8c00;
   color: white;
-  padding: 10px 16px;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s;
 }
-.contact-btn:hover {
-  background: #e57a00;
+
+.drawer-username {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
 }

@@ -18,15 +18,13 @@ const Register = () => {
     setSuccess("");
 
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/register", {
+      const res = await axios.post("http://localhost:5000/api/users/register", {
         name,
         email,
         password,
       });
 
       setSuccess(res.data.msg);
-      
-      // Redirect to sign in page after a delay
       setTimeout(() => {
         window.location.href = "/signin";
       }, 1500);

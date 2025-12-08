@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "../Components/FreeKundli.css";
+import Kundali from '../assets/Kundali.jpg';
+
 
 export default function FreeKundli() {
   const [formData, setFormData] = useState({
@@ -29,15 +31,21 @@ export default function FreeKundli() {
   return (
     <div>
       <div className="kundli-wrapper">
-        <p>
+
+        {/* DESCRIPTION */}
+        <p className="kundli-description">
           Kundli, also known as Kundali, is one of the most important charts in
           Indian astrology (Vedic astrology). This Kundali chart is prepared
           according to the date of birth, time of birth and place of birth of a
           person.
         </p>
 
-        <h1 className="kundli-title">Kundli – Free Kundali Online</h1>
+        {/* TITLE */}
+        <h1 className="kundli-title">
+          Get Your <span className="highlight-orange">Free Kundli</span> Report
+        </h1>
 
+        {/* FORM */}
         <form className="kundli-form" onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Name</label>
@@ -62,6 +70,7 @@ export default function FreeKundli() {
             </select>
           </div>
 
+          {/* DATE */}
           <div className="row-grid">
             <input
               type="number"
@@ -86,6 +95,7 @@ export default function FreeKundli() {
             />
           </div>
 
+          {/* TIME */}
           <div className="row-grid">
             <input
               type="number"
@@ -118,6 +128,7 @@ export default function FreeKundli() {
             </select>
           </div>
 
+          {/* BIRTH PLACE */}
           <div className="form-group">
             <label>Birth Place</label>
             <input
@@ -134,10 +145,42 @@ export default function FreeKundli() {
         </form>
       </div>
 
-      <div>
-        <h1>GET KUNDLI Online Free Kundli Software </h1>
-        <p></p>
+      {/* WHY KUNDLI CHAT SECTION */}
+      <div className="kundli-chat-section">
+
+        {/* LEFT IMAGE */}
+        <div className="kundli-chat-image">
+          <img src={Kundali} alt="Kundli Chat" />
+        </div>
+
+        {/* RIGHT CONTENT */}
+        <div className="kundli-chat-content">
+          <h2>
+            Why Everyone Needs <span>Kundli Chat</span>
+          </h2>
+
+          <p>
+            Kundli Chat is essential for everyone because it provides instant and
+            personalized astrological guidance. It helps people understand their
+            life, career, relationships, health, and future with clarity and
+            confidence.
+          </p>
+
+          <p>
+            In today’s fast-paced life, waiting for appointments is difficult.
+            Kundli Chat makes astrology fast, easy, and accessible anytime,
+            anywhere.
+          </p>
+
+          <ul>
+            <li>Instant answers to life questions</li>
+            <li>Personalized birth-chart guidance</li>
+            <li>No waiting, no appointments</li>
+            <li>Available anytime, anywhere</li>
+          </ul>
+        </div>
       </div>
+
     </div>
   );
 }

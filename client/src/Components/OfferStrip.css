@@ -1,0 +1,30 @@
+.offer-ticker {
+  width: 100%;
+  background: #3a5a40;
+  padding: 15px 0;
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+  border-bottom: 1px solid #e67600;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(6px);
+  margin-top: 10px;
+}
+
+.ticker-content {
+  display: inline-block;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding-left: 100%;
+  animation: smoothScroll 12s linear infinite;
+}
+
+@keyframes smoothScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
